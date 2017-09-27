@@ -1,5 +1,12 @@
 package projetopetcate.projetopetcate.Entidades;
 
+import com.google.firebase.database.DatabaseReference;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import projetopetcate.projetopetcate.DAO.ConfigFireBase;
+
 /**
  * Created by guilh on 27/09/2017.
  */
@@ -16,6 +23,20 @@ public class Usuarios {
     private String Endereço;
 
     public Usuarios() {
+    }
+
+    public void salvar(){
+        DatabaseReference referenciaFirebase = ConfigFireBase.getFirebase();
+        referenciaFirebase.child("usuario").child(String.valueOf(getId())).setValue(this);
+    }
+
+    public Map<String,Object> toMap(){
+        HashMap<String,Object> hashMapUsuario = new HashMap<>();
+        hashMapUsuario.put("id",getId());
+        hashMapUsuario.put("email",getEmail());
+        hashMapUsuario.put("senha",getSenha());
+
+        return hashMapUsuario;
     }
 
     public String getId() {

@@ -29,6 +29,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <EditText
+                android:id="@+id/edtcadConfirmarSenha"
+                android:hint="CONFIRMAR SENHA"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
             <Button
                 android:id="@+id/btnGravar"
                 android:text="GRAVAR"
